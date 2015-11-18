@@ -1,0 +1,17 @@
+﻿Build started 11/18/2015 8:58:52 AM.
+     1>Project "C:\Users\stud2014\Shulpin\mp2-lab2-matrix\sln\vc10\test_utmatrix.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\test_utmatrix.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../gtest /I../../include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\test\test_main.cpp ..\..\test\test_tmatrix.cpp ..\..\test\test_tvector.cpp
+         test_tvector.cpp
+     1>c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(329): error C2244: 'TVector<ValType>::operator *' : unable to match function definition to an existing declaration
+         test_tmatrix.cpp
+     1>c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(329): error C2244: 'TVector<ValType>::operator *' : unable to match function definition to an existing declaration
+         test_main.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\stud2014\Shulpin\mp2-lab2-matrix\sln\vc10\test_utmatrix.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.54

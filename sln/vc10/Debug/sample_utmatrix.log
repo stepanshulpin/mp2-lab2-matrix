@@ -1,0 +1,38 @@
+﻿Build started 11/18/2015 9:14:46 AM.
+     1>Project "C:\Users\stud2014\Shulpin\mp2-lab2-matrix\sln\vc10\sample_utmatrix.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\sample_utmatrix.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\samples\sample_matrix.cpp
+         sample_matrix.cpp
+     1>c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(169): error C2664: 'TVector<ValType>::TVector(int,int)' : cannot convert parameter 1 from 'TVector<ValType> *const ' to 'int'
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 There is no context in which this conversion is possible
+                 c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(168) : while compiling class template member function 'TVector<ValType> TVector<ValType>::operator +(const TVector<ValType> &)'
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(84) : while compiling class template member function 'TVector<ValType>::~TVector(void)'
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 c:\users\stud2014\shulpin\mp2-lab2-matrix\include\utmatrix.h(212) : see reference to class template instantiation 'TVector<ValType>' being compiled
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 c:\users\stud2014\shulpin\mp2-lab2-matrix\samples\sample_matrix.cpp(15) : see reference to class template instantiation 'TMatrix<ValType>' being compiled
+                 with
+                 [
+                     ValType=int
+                 ]
+     1>Done Building Project "C:\Users\stud2014\Shulpin\mp2-lab2-matrix\sln\vc10\sample_utmatrix.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.79

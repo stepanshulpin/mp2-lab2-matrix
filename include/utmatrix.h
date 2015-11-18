@@ -9,6 +9,7 @@
 #define __TMATRIX_H__
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -53,8 +54,10 @@ public:
   }
   friend ostream& operator<<(ostream &out, const TVector &v)
   {
-    for (int i = 0; i < v.Size; i++)
-      out << v.pVector[i] << ' ';
+    for (int i = 0; i < v.StartIndex; i++)
+      out << "    0";
+    for (int i = 0; i< v.Size; i++)
+        out<<setw(5)<<v.pVector[i];
     return out;
   }
 };
@@ -70,6 +73,10 @@ TVector<ValType>::TVector(int s, int si)
 template <class ValType> //конструктор копирования
 TVector<ValType>::TVector(const TVector<ValType> &v)
 {
+    pVector= new ValType[v.Size];
+    Size=v.Size;
+    StartIndex=v.StartIndex;
+    for (int i=0; i<v.Size; i++) pVector[i]=v.pVector[i];
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType>
@@ -211,7 +218,8 @@ public:
   int operator!=(const TMatrix &mt) const;      // сравнение
   TMatrix& operator= (const TMatrix &mt);        // присваивание
   TMatrix  operator+ (const TMatrix &mt);        // сложение
-  TMatrix  operator- (const TMatrix &mt);        // вычитание
+  TMatrix  operator- (const TMatrix &mt);       // вычитание
+  TMatrix  operator* (const TMatrix &mt);       //умножение
 
   // ввод / вывод
   friend istream& operator>>(istream &in, TMatrix &mt)
@@ -300,6 +308,26 @@ TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType> &mt)
     return (TVector<TVector<ValType>>::operator -(mt));
 } /*-------------------------------------------------------------------------*/
 
+template <class ValType> // умножение
+TMatrix<ValType> TMatrix<ValType>::operator* (const TMatrix<ValType> &mt)
+{
+    TMatrix<int> a(Size), b(Size), x(Size);
+    int temp, flag;
+    b=*this;
+    x=mt;
+    a=mt;
+    if (Size==mt.Size) {
+        for (int i=0; i<Size; i++)
+            for (int j=i; j< Size; j++) {
+                temp = 0;
+                if(i>j) flag=Size-i-1; else flag=Size-j-1;
+                for (int g=1; g<(Size-flag); g++)
+                    temp=temp+(b[i][g]*x[g][j]);
+                a[i][j]=temp;
+            }
+    }
+    return a;
+}
 // TVector О3 Л2 П4 С6
 // TMatrix О2 Л2 П3 С3
 #endif
